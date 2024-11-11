@@ -6,10 +6,7 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import errorMiddleware from './Middlewares/error.middleware.js';
 import paymentRoutes   from './Routes/payment.routes.js'
-// use .js for internal data imported
-// const express=require('express')
-// const cors=require('cors');
-// const cookieParser = require('cookie-parser');
+
 
 const app=express();
 app.use(express.json());
@@ -19,12 +16,12 @@ app.use(cors({
     credentials:true
 }));
 app.use(cookieParser());
-app.use(morgan('dev')) // user  // for security purpose programmer  will know at dev level who and what request are they sending or calling using backend api 
+app.use(morgan('dev'))  
 app.use('/ping',function(req,res){
     res.send('Pong')
 })
 
-// 3 modules routes :
+//  routes :
 app.use('/api/v1/user',userRoutes)
 app.use('/api/v1/course',courseRoutes) 
 //app.use('/api/v1/payments',paymentRoutes)
